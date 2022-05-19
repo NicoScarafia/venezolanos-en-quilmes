@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Signika Negative", sans-serif;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 8rem;
+  background-color: #f14143;
+  max-height: 5rem;
+}
+
+.navbar .link-left, .navbar .link-right {
+  color: #feee4e;
+  font-size: 1.2rem;
+  margin: 0 1.5rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: relative;
+}
+
+.navbar .link-left::after, .navbar .link-right::after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #e7e4d3;
+  width: 100%;
+  height: 0.12rem;
+  border-radius: 0.5rem;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+}
+
+.navbar .link-left:hover, .navbar .link-right:hover {
+  color: #e7e4d3;
+}
+
+.navbar .link-left:hover::after, .navbar .link-right:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.navbar .link-left:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.navbar .main-logo {
+  width: 4rem;
+  margin: 0 2rem;
+}
+
+.hero-section {
+  width: 100%;
+  min-height: 22rem;
+  height: 60vh;
+  background-color: #0a5aa2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero-section h1 {
+  font-family: "Merienda One", cursive;
+  font-size: 3.2rem;
+  line-height: 3rem;
+  color: white;
+  letter-spacing: -0.3rem;
+  margin-top: -1rem;
+}
+
+.hero-section h1 .venezolanos {
+  font-size: 6rem;
+  background: url("../assets/img/bandera-venezuela-2.jpg");
+  background-size: 100%;
+  background-position-x: center;
+  background-position-y: -5px;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-section h1 .quilmes {
+  font-size: 6rem;
+  background: url("../assets/img/bandera-argentina.jpg");
+  background-size: 100%;
+  background-position-x: center;
+  background-position-y: -8px;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-section h1 .somos {
+  margin-left: 6rem;
+}
+
+.hero-section h1 .second-line {
+  margin-left: 10rem;
+}
+
+#about {
+  padding-top: 3rem;
+}
+
+#about h2 {
+  font-family: "Signika Negative", sans-serif;
+  color: #141720;
+  font-size: 3.3rem;
+  letter-spacing: -0.1rem;
+  padding-left: 6rem;
+}
+
+#about .about_subheading {
+  width: 30rem;
+  font-size: 1.3rem;
+  line-height: 1.35rem;
+  text-align: center;
+  margin: 2rem auto;
+}
+
+#about .about_content {
+  position: relative;
+}
+
+#about .about_content .about_image {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+}
+
+#about .about_content .about_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#about .about_content .about_text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  width: 45rem;
+  line-height: 1.6rem;
+  background-color: #e7e4d3;
+}
+
+#about .about_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 7rem;
+}
+
+#about .about_link a {
+  width: 7rem;
+  background-color: #f14143;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#about .about_link a:hover {
+  color: #e7e4d3;
+  background-color: #0a5aa2;
+}
+
+#actividades {
+  padding-top: 3rem;
+}
+
+#actividades h2 {
+  font-family: "Signika Negative", sans-serif;
+  color: #141720;
+  font-size: 3.3rem;
+  letter-spacing: -0.1rem;
+  padding-left: 6rem;
+}
+/*# sourceMappingURL=styles.css.map */

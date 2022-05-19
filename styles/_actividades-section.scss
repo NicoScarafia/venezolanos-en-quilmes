@@ -1,0 +1,8 @@
+#actividades {
+    padding-top: 3rem;
+
+    h2 {
+        @include HomeTitle;
+        padding-left: 6rem;
+    }
+}
