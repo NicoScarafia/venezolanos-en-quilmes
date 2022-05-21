@@ -1,0 +1,51 @@
+main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    border: $b;
+}
+
+#calendar {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-top: 2rem;
+    border: $b;
+
+}
+
+
+.year {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto;
+    column-gap: 1rem;
+    padding: 1rem 1rem;
+    border: $b;
+}
+
+.month {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border: $b;
+
+    .dayGrid {
+        display: grid;
+        width: 100%;
+        height: auto;
+        grid-template-columns: repeat(7, auto);
+        column-gap: 0.1rem;
+        row-gap: 0rem;
+        border: $b;
+    }
+}
+
+.day {
+    width: 100%;
+    height: 5rem;
+    border: $b;
+
+}
