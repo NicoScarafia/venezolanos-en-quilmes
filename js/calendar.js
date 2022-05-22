@@ -73,10 +73,13 @@ window.addEventListener('load', function() {
 
         for(let j = 0; j < (row * 7); j++){
             const day = document.createElement("div");
-            day.className = "day"
+            day.className = "day hov click"
+            
 
             const divNumber = document.createElement("div");
+            
             const divImg = document.createElement("div");
+            
             
 
             if (j < start){
@@ -101,9 +104,13 @@ window.addEventListener('load', function() {
                 divNumber.innerHTML = j - start - dayNum + 1; 
             }
 
-            divNumber.className = "divNum";
+            //day.onclick = openDetail(day.id, arrayMonth[i+1]);
+            divNumber.className = "divNum hov click";
+            //divNumber.onclick = openDetail(day.id, arrayMonth[i+1]);
             divImg.id = "divImg" + day.id;
-            divImg.className = "divImg";
+            divImg.className = "divImg hov click";
+            //divImg.onclick = openDetail(day.id, arrayMonth[i+1]);
+            
             document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).appendChild(day);
             document.querySelector("#" + day.id).appendChild(divNumber);
             document.querySelector("#" + day.id).appendChild(divImg);
@@ -112,9 +119,10 @@ window.addEventListener('load', function() {
         start = 7 - ((row * 7) - start - dayNum);
     }
 
-    
 
-    
-    
+    // function openDetail(id, mes) {
+    //     document.querySelector(".detail").style.display = "flex";
+    //     document.querySelector(".detail h3").innerHTML = mes;
+    // }
 
 }, false);

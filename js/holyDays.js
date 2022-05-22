@@ -41,7 +41,7 @@ window.addEventListener('load', function() {
         document.querySelector("#imgSet").appendChild(imgSet)
     }
 
-    const arrayMonth = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    const arrayMonth = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
     let d = "";
     let m = "";
@@ -73,7 +73,7 @@ window.addEventListener('load', function() {
 
         } else {
 
-            let id = arrayMonth[m-1] + d;
+            let id = arrayMonth[m-1].slice(0,3) + d;
             console.log(id);
             let consult;
 
@@ -166,11 +166,16 @@ window.addEventListener('load', function() {
                 const mark = document.createElement("img");
                 mark.className = "markImg";
                 mark.src = days[i].img[j]
+                //mark.onclick = openDetail(id, );
         
                 document.querySelector("#" + dayDiv.id).appendChild(mark);
             }            
         }    
     }
+
+    // function openDetail(id) {
+    //     document.querySelector(".detail").style.display = "flex";
+    // }
 
     obtener();
 
