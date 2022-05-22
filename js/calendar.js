@@ -75,23 +75,38 @@ window.addEventListener('load', function() {
             const day = document.createElement("div");
             day.className = "day"
 
+            const divNumber = document.createElement("div");
+            const divImg = document.createElement("div");
+            
+
             if (j < start){
                 day.id = "pre" + arrayMonth[i].slice(0,3) + (arrayDays[i] - start + j + 1);
-                day.innerHTML = arrayDays[i] - start + j + 1;
                 day.style.color = "rgb(167, 163, 163)";
+
+                divNumber.id = "divNum" + day.id;
+                divNumber.innerHTML = arrayDays[i] - start + j + 1;
                 
             } else if (j >= start && j < dayNum + start){
                 day.id = arrayMonth[i+1].slice(0,3) + (j - start + 1)
-                day.innerHTML = j - start + 1;
                 day.style.border = "3px solid black";
+
+                divNumber.id = "divNum" + day.id;
+                divNumber.innerHTML = j - start + 1;
 
             } else if (j >= dayNum + start ){
                 day.id = "post" + arrayMonth[i+2].slice(0,3) + (j - start - dayNum + 1);
-                day.innerHTML = j - start - dayNum + 1;
                 day.style.color = "rgb(167, 163, 163)";
+
+                divNumber.id = "divNum" + day.id;
+                divNumber.innerHTML = j - start - dayNum + 1; 
             }
 
+            divNumber.className = "divNum";
+            divImg.id = "divImg" + day.id;
+            divImg.className = "divImg";
             document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).appendChild(day);
+            document.querySelector("#" + day.id).appendChild(divNumber);
+            document.querySelector("#" + day.id).appendChild(divImg);
         }
 
         start = 7 - ((row * 7) - start - dayNum);

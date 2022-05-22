@@ -36,7 +36,9 @@ let celeb = "";
 let img = "";
 
 const addButton = document.querySelector("#addButton");
-addButton.onclick = (e) => {
+addButton.onclick = addData();
+
+function addData(e){
     e.preventDefault();
     d = document.querySelector("#dayInput").value;
     m = document.querySelector("#monthInput").value;
