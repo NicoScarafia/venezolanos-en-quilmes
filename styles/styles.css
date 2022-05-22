@@ -20,12 +20,13 @@ a {
   justify-content: center;
   align-items: center;
   padding: 0 8rem;
-  background-color: #f14143;
+  background-color: #feee4e;
   max-height: 5rem;
 }
 .navbar .link-left, .navbar .link-right {
-  color: #feee4e;
+  color: #f14143;
   font-size: 1.2rem;
+  font-weight: bold;
   margin: 0 1.5rem;
   transition: all 0.5s;
   position: relative;
@@ -35,7 +36,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #e7e4d3;
+  background-color: #0a5aa2;
   width: 100%;
   height: 0.12rem;
   border-radius: 0.5rem;
@@ -44,7 +45,7 @@ a {
   transition: transform 250ms ease-in;
 }
 .navbar .link-left:hover, .navbar .link-right:hover {
-  color: #e7e4d3;
+  color: #0a5aa2;
 }
 .navbar .link-left:hover::after, .navbar .link-right:hover::after {
   transform: scaleX(1);
@@ -152,7 +153,7 @@ a {
   text-align: center;
   width: 45rem;
   line-height: 1.6rem;
-  background-color: #e7e4d3;
+  background-color: #e7d7d3;
 }
 #about .about_link {
   display: flex;
@@ -169,7 +170,7 @@ a {
   transition: all 0.3s;
 }
 #about .about_link a:hover {
-  color: #e7e4d3;
+  color: #e7d7d3;
   background-color: #0a5aa2;
 }
 
@@ -185,27 +186,87 @@ a {
 }
 
 main {
-  width: 100vw;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  align-content: center;
   border: 1px solid black;
 }
 
 #calendar {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #f14143;
+  border: 1px solid #f14143;
+}
+#calendar .title {
+  display: flex;
+  justify-content: space-around;
   width: 90%;
   margin-top: 2rem;
+}
+#calendar .title h2 {
+  font-size: 3rem;
+}
+#calendar .title .addInput {
+  background-image: url("../assets/img/addIcon.png");
+  background-size: contain;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.input {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 18rem;
+  background-color: #e7d7d3;
+  height: 15rem;
   border: 1px solid black;
+  box-shadow: 10px 10px 15px black;
+  border-radius: 10px;
+}
+.input .inputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 28rem;
+}
+.input .inputForm div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+}
+.input .inputForm div div {
+  display: flex;
+  flex-direction: column;
+}
+.input .inputForm div div input {
+  width: 3rem;
+  text-align: center;
+}
+.input .inputForm div #closeButton {
+  margin-left: 2rem;
+}
+.input .inputForm div button {
+  width: 8rem;
+  height: 2rem;
+  border-radius: 5px;
 }
 
 .year {
   display: grid;
-  width: 100%;
+  width: 90%;
   grid-template-columns: auto auto;
-  column-gap: 1rem;
-  padding: 1rem 1rem;
-  border: 1px solid black;
+  column-gap: 10rem;
+  row-gap: 3rem;
+  padding: 0rem 0rem;
 }
 
 .month {
@@ -214,22 +275,54 @@ main {
   align-items: center;
   width: 100%;
   height: auto;
-  border: 1px solid black;
+  margin-top: 2rem;
+  background-color: #e7d7d3;
+  border: 1px solid #e7d7d3;
+  border-radius: 10px;
+  box-shadow: 10px 10px 40px black;
+}
+.month h3 {
+  font-size: 3rem;
+  color: black;
+}
+.month .daysNames {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 0rem;
+  margin-top: 1rem;
+}
+.month .daysNames .dayName {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5rem;
 }
 .month .dayGrid {
   display: grid;
   width: 100%;
   height: auto;
-  grid-template-columns: repeat(7, auto);
-  column-gap: 0.1rem;
-  row-gap: 0rem;
-  border: 1px solid black;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 0.25rem;
+  row-gap: 0.25rem;
+  padding: 0.5rem;
 }
-
-.day {
+.month .dayGrid .day {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 5rem;
-  border: 1px solid black;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.month .dayGrid .day div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.month .dayGrid .day div img {
+  width: 35px;
 }
 
 /*# sourceMappingURL=styles.css.map */

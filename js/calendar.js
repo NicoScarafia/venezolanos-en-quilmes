@@ -8,29 +8,46 @@ window.addEventListener('load', function() {
     year.className = "year";
     document.querySelector("#calendar").appendChild(year);
 
-    const arrayMonth = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-    const arrayDays = [31,31,28,31,30,31,30,31,31,30,31,30,31,31];
+    const arrayMonth = ["Dic", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Ene"];
+    const arrayDays = [31,31,new Date(new Date().getFullYear(), 2, 0).getDate(),31,30,31,30,31,31,30,31,30,31,31];
+    const arrayDaysName = ["DO", "LU", "MA", "MI", "JU", "VI", "SA"];
+
     let ene1 = new Date(new Date().getFullYear(), 0, 1).getDay();
     let start = ene1;
 
     for(let i = 0; i < 12; i++){
 
-        let dayNum = arrayDays[i+1];
+        let dayNum = new Date(new Date().getFullYear(), i+1 , 0).getDate();
 
         const month = document.createElement("div");
-        month.id = arrayMonth[i];
+        month.id = arrayMonth[i+1];
         month.className = "month"
         document.querySelector(".year").appendChild(month)
 
         const monthTitle = document.createElement("h3");
-        monthTitle.innerText = arrayMonth[i][0].toUpperCase() + arrayMonth[i].slice(1);
-        document.querySelector("#" + arrayMonth[i]).appendChild(monthTitle);
+        monthTitle.innerText = arrayMonth[i+1];
+        document.querySelector("#" + arrayMonth[i+1]).appendChild(monthTitle);
+
+        const daysNames = document.createElement("div");
+        daysNames.id = "daysNames" + arrayMonth[i+1].slice(0,3);
+        daysNames.className = "daysNames";
+        document.querySelector("#" + arrayMonth[i+1]).appendChild(daysNames);
+
+        for(let j = 0; j < 7; j++){
+            const dayName = document.createElement("div");
+            let id = "dayName" + arrayMonth[i+1].slice(0,3) + arrayDaysName[j];
+            dayName.id = id;
+            dayName.className = "dayName";
+            dayName.innerHTML = arrayDaysName[j];
+            document.querySelector("#daysNames" + arrayMonth[i+1].slice(0,3)).appendChild(dayName);
+        }
+        
 
         const dayGrid = document.createElement("div")
-        dayGrid.id = "dayGrid" + arrayMonth[i]
+        dayGrid.id = "dayGrid" + arrayMonth[i+1].slice(0,3)
         dayGrid.className = "dayGrid"
 
-        document.querySelector("#" + arrayMonth[i]).appendChild(dayGrid);
+        document.querySelector("#" + arrayMonth[i+1]).appendChild(dayGrid);
         
         let row = 0;
 
@@ -42,8 +59,7 @@ window.addEventListener('load', function() {
                 start = 0;
             }
 
-            console.log(row);
-            document.querySelector("#dayGrid" + arrayMonth[i]).style.gridTemplateRows = "repeat(" + row + ", auto)";
+            document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).style.gridTemplateRows = "repeat(" + row + ", auto)";
         } else {
             row = Math.floor((start + dayNum) / 7) + 1;
             
@@ -51,27 +67,31 @@ window.addEventListener('load', function() {
                 row --;
                 start = 0;
             }
-            
-            console.log(row);
-            document.querySelector("#dayGrid" + arrayMonth[i]).style.gridTemplateRows = "repeat(" + row + ", auto)"
+
+            document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).style.gridTemplateRows = "repeat(" + row + ", auto)"
         }  
-        
-        console.log("start: " + start);
 
         for(let j = 0; j < (row * 7); j++){
             const day = document.createElement("div");
-            day.id = arrayMonth[i].slice(0,3) + (j+1);
             day.className = "day"
 
             if (j < start){
+                day.id = "pre" + arrayMonth[i].slice(0,3) + (arrayDays[i] - start + j + 1);
                 day.innerHTML = arrayDays[i] - start + j + 1;
+                day.style.color = "rgb(167, 163, 163)";
+                
             } else if (j >= start && j < dayNum + start){
+                day.id = arrayMonth[i+1].slice(0,3) + (j - start + 1)
                 day.innerHTML = j - start + 1;
+                day.style.border = "3px solid black";
+
             } else if (j >= dayNum + start ){
+                day.id = "post" + arrayMonth[i+2].slice(0,3) + (j - start - dayNum + 1);
                 day.innerHTML = j - start - dayNum + 1;
+                day.style.color = "rgb(167, 163, 163)";
             }
 
-            document.querySelector("#dayGrid" + arrayMonth[i]).appendChild(day);
+            document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).appendChild(day);
         }
 
         start = 7 - ((row * 7) - start - dayNum);
