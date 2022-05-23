@@ -54,7 +54,7 @@ function addData(e){
             img: "",
           });
 
-        document.querySelector(".msj").innerHTML = "Agregado."; // agrega db.
+        document.querySelector(".msj").innerHTML = "Agregado."; 
 
 
     }

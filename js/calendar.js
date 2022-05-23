@@ -73,14 +73,11 @@ window.addEventListener('load', function() {
 
         for(let j = 0; j < (row * 7); j++){
             const day = document.createElement("div");
-            day.className = "day hov click"
-            
+            day.className = "day"            
 
             const divNumber = document.createElement("div");
             
-            const divImg = document.createElement("div");
-            
-            
+            const divImg = document.createElement("div");            
 
             if (j < start){
                 day.id = "pre" + arrayMonth[i].slice(0,3) + (arrayDays[i] - start + j + 1);
@@ -104,12 +101,16 @@ window.addEventListener('load', function() {
                 divNumber.innerHTML = j - start - dayNum + 1; 
             }
 
-            //day.onclick = openDetail(day.id, arrayMonth[i+1]);
-            divNumber.className = "divNum hov click";
-            //divNumber.onclick = openDetail(day.id, arrayMonth[i+1]);
+            let passId = day.id;
+
+            // day.onclick = () => {openDetail(passId, arrayMonth[i+1]);}
+            day.onmouseover = () => {hoverIn(passId);}
+            day.onmouseout = () => {hoverOut(passId);}
+            divNumber.className = "divNum";
+            // divNumber.onclick = () => {openDetail(passId, arrayMonth[i+1]);}
             divImg.id = "divImg" + day.id;
-            divImg.className = "divImg hov click";
-            //divImg.onclick = openDetail(day.id, arrayMonth[i+1]);
+            divImg.className = "divImg";
+            // divImg.onclick = () => {openDetail(passId, arrayMonth[i+1]);}
             
             document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).appendChild(day);
             document.querySelector("#" + day.id).appendChild(divNumber);
@@ -117,12 +118,20 @@ window.addEventListener('load', function() {
         }
 
         start = 7 - ((row * 7) - start - dayNum);
+    }    
+
+    function hoverIn(id) {
+        document.querySelector("#" + id).style.border = "3px solid gold";
     }
 
-
-    // function openDetail(id, mes) {
-    //     document.querySelector(".detail").style.display = "flex";
-    //     document.querySelector(".detail h3").innerHTML = mes;
-    // }
+    function hoverOut(id) {
+        console.log(id);
+        if(id.slice(0,3) === "pre" || id.slice(0,3) === "pos"){
+            document.querySelector("#" + id).style.border = "1px solid black";
+        } else {
+            document.querySelector("#" + id).style.border = "3px solid black";
+        }
+        
+    }
 
 }, false);

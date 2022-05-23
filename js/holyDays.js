@@ -2,6 +2,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 import { getFirestore, doc, collection, setDoc, getDoc, getDocs, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
+let days;
+
 window.addEventListener('load', function() {    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -161,22 +163,39 @@ window.addEventListener('load', function() {
                 const dayDiv = document.createElement("div");
                 dayDiv.className = "dayDiv";
                 dayDiv.id = id + "-" + j;
+                dayDiv.onclick = () => {openDetail(id);}
                 document.querySelector("#divImg" + id).appendChild(dayDiv);
         
                 const mark = document.createElement("img");
                 mark.className = "markImg";
                 mark.src = days[i].img[j]
-                //mark.onclick = openDetail(id, );
-        
                 document.querySelector("#" + dayDiv.id).appendChild(mark);
             }            
         }    
     }
 
-    // function openDetail(id) {
-    //     document.querySelector(".detail").style.display = "flex";
-    // }
+    document.querySelector(".detailClose").onclick = closeDetail;
+
+    function openDetail(id) {
+
+        let month;
+
+        for(let i = 0; i < arrayMonth.length; i++){
+            if(id.slice(0,3) === arrayMonth[i].slice(0,3)){
+                month = arrayMonth[i];
+            }
+        }
+        document.querySelector(".detail").style.display = "block";
+        document.querySelector(".detail h3").innerHTML = month + " " + id.slice(3);
+    }
+
+    function closeDetail() {
+        document.querySelector(".detail").style.display = "none";
+    }
 
     obtener();
 
+    
 }, false);
+
+export const data = days;

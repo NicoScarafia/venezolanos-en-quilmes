@@ -217,6 +217,13 @@ main {
   right: 10rem;
   width: 3rem;
   height: 3rem;
+  z-index: 5;
+}
+#calendar .title .addInput:hover {
+  cursor: pointer;
+}
+#calendar .title .addInput:active {
+  transform: scale(0.9);
 }
 
 .input {
@@ -292,6 +299,21 @@ main {
   position: fixed;
   top: 18rem;
   background-color: red;
+  z-index: 3;
+}
+.detail .detailHead {
+  display: flex;
+  justify-content: space-between;
+}
+.detail .detailHead h3 {
+  font-size: 2rem;
+  margin-left: 3rem;
+}
+.detail .detailHead .detailClose:hover {
+  cursor: pointer;
+}
+.detail .detailHead .detailClose:active {
+  transform: scale(0.9);
 }
 
 .year {
@@ -351,7 +373,6 @@ main {
   height: auto;
   border: 1px solid black;
   border-radius: 10px;
-  z-index: 10;
 }
 .month .dayGrid .day .divNum {
   height: 1rem;
@@ -376,6 +397,9 @@ main {
 }
 .month .dayGrid .day .divImg .dayDiv img:hover {
   transform: scale(1.2);
+}
+.month .dayGrid .day:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

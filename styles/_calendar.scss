@@ -31,9 +31,18 @@ main {
             right: 10rem;
             width: 3rem;
             height: 3rem;
+            z-index: 5;
+
+            &:hover{
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(0.9);
             }
         }
     }
+}
 
     .input {
         display: none;
@@ -121,6 +130,26 @@ main {
         position: fixed;
         top: 18rem;
         background-color: red;
+        z-index: 3;
+
+        .detailHead {
+            display: flex;
+            justify-content: space-between;
+
+            h3 {
+                font-size: 2rem;
+                margin-left: 3rem;
+            }
+
+            .detailClose {
+                &:hover{
+                    cursor: pointer;
+                }
+                &:active{
+                    transform: scale(0.9);
+                }
+            }
+        }
     }
 
 
@@ -184,7 +213,7 @@ main {
             height: auto;
             border: 1px solid black;
             border-radius: 10px;
-            z-index: 10;
+            
 
             .divNum{
                 height: 1rem;
@@ -214,6 +243,10 @@ main {
                         }
                     }
                 }
+            }
+
+            &:hover{
+                cursor: pointer;
             }
         }
     }
