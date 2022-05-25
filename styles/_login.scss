@@ -1,0 +1,55 @@
+.mainAdmin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: $light;
+    min-height: 100vh;
+    
+    .loginAdm{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .buttons {
+            display: flex;
+            justify-content: end;
+            width: 100%;
+            padding-right: 2rem;
+
+            button {
+                margin-left: 2rem;
+                margin-top: 1rem;
+            }
+        }
+    
+        #login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-top: 2rem;
+
+            .inputLog {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+
+                label {
+                    margin-right: 1rem;
+                }
+
+                input {
+                    width: 10rem;
+                }
+            }
+
+            .inputSubmit {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+    
+}

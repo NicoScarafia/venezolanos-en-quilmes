@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    <!-- Title -->
+    <title>Somos Venezolanos en Quilmes | Login</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="link-left" href="../index.html#about">Nosotros</a>
+            <a class="link-left" href="../index.html#actividades">Actividades</a>
+            <a href="/">
+                <img class="main-logo" src="../assets/logo.png" alt="Logo Somos Venezolanos en Quilmes">
+            </a>
+            <a class="link-right" href="#redes">Nuestras Redes</a>
+            <a class="link-right" href="#Calendar">Calendario</a>
+        </nav>
+    </header>
+    
+    <div class="hero-section">
+        <img src="../assets/img/somosvenezolanos.jpg">
+    </div>
+
+    <main class="mainAdmin">
+        <section class="loginAdm">
+            <div class="buttons">
+                <button>Agregar Administrador</button>
+                <button>Cerrar Sesion</button>
+            </div>
+            
+            <div id="login">
+                <form>
+                    <div class="inputLog">
+                        <label for="user">Usuario</label>
+                        <input type="text" name="user" id="user">
+                    </div>
+
+                    <div class="inputLog">
+                        <label for="pass">Contraseña</label>
+                        <input type="password" name="pass" id="pass">
+                    </div>
+
+                    <div class="inputSubmit">
+                        <button type="submit" id="submit">Iniciar Sesion</button>
+                    </div>
+                </form>
+
+                <h3 class="msj"></h3>
+            </div>
+        </section>
+        
+    </main>
+
+    <script type="module" src="../js/login.js"></script>
+</body>
+</html>

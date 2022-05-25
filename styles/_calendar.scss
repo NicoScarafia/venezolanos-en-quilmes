@@ -1,4 +1,4 @@
-main {
+.mainCalendar {
     width: 100%;
     display: flex;
     align-content: center;
@@ -125,16 +125,22 @@ main {
 
     .detail {
         display: none;
-        width: 30rem;
-        height: 10rem;
+        flex-direction: column;
         position: fixed;
-        top: 18rem;
-        background-color: red;
         z-index: 3;
+        top: 18rem;
+        right: 45rem;
+        background-color: $light;
+        height: auto; 
+        width: 40rem;
+        border: 1px solid black;  
+        box-shadow: 10px 10px 15px black;
+        border-radius: 10px;
 
         .detailHead {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 2rem;
 
             h3 {
                 font-size: 2rem;
@@ -149,6 +155,26 @@ main {
                     transform: scale(0.9);
                 }
             }
+        }
+
+        .detailUl {
+            margin-left: 3rem;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+
+                h3{
+                    size: 2rem;
+                }
+
+                button {
+                    height: 1.25rem;
+                    margin-right: 1rem;
+                }
+            }
+            
         }
     }
 

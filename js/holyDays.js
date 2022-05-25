@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-import { getFirestore, doc, collection, setDoc, getDoc, getDocs, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+import { getFirestore, doc, collection, setDoc, getDoc, getDocs, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
 let days;
 
@@ -58,7 +58,7 @@ window.addEventListener('load', function() {
         d = document.querySelector("#dayInput").value;
         m = document.querySelector("#monthInput").value;
         celeb = document.querySelector("#celebInput").value;
-        img = document.querySelector("#imgInput").value;
+        img = document.querySelector("#imgInput").value + celeb;
 
         if((d > 31 || m > 31) || (d > new Date(new Date().getFullYear(), 2 , 0).getDate() && 
             m == 2) || (d > 30 && [4,6,9,11].includes(m)) || d < 1 || m < 1){
@@ -113,7 +113,7 @@ window.addEventListener('load', function() {
                         celebration: [celeb],
                         img: [img],
                     })
-                        .then(()=> {
+                        .then(() => {
                             document.querySelector(".msj").innerHTML = "Agregado Correctamente.";
                             document.querySelector("#dayInput").value = "";
                             m = document.querySelector("#monthInput").value = "";
@@ -137,8 +137,6 @@ window.addEventListener('load', function() {
     function limpiar() {
         document.querySelector(".msj").innerHTML = "";
     }
-    
-    let days;
 
     async function obtener() { 
         
@@ -168,7 +166,7 @@ window.addEventListener('load', function() {
         
                 const mark = document.createElement("img");
                 mark.className = "markImg";
-                mark.src = days[i].img[j]
+                mark.src = days[i].img[j].slice(0, days[i].img[j].length - days[i].celebration[j].length)
                 document.querySelector("#" + dayDiv.id).appendChild(mark);
             }            
         }    
@@ -185,12 +183,72 @@ window.addEventListener('load', function() {
                 month = arrayMonth[i];
             }
         }
-        document.querySelector(".detail").style.display = "block";
+        document.querySelector(".detail").style.display = "flex";
         document.querySelector(".detail h3").innerHTML = month + " " + id.slice(3);
+
+        let dayData;
+
+        for(let d = 0; d < days.length; d++) {
+            console.log(days[d].id);
+            if (days[d].id == id){
+                dayData = {
+                    celebration: days[d].celebration,
+                    img: days[d].img
+                }
+                break;
+            } 
+        }
+        
+
+        console.log(dayData);
+
+        for(let i = 0; i < dayData.celebration.length; i++){
+            const li = document.createElement("li");
+            li.id = "Li-0" + i + "-" + id;
+
+            document.querySelector(".detailUl").appendChild(li);
+
+            const liH3 = document.createElement("h3");
+            liH3.className = "liH3";
+            liH3.innerHTML =  dayData.celebration[i];
+            const liDel = document.createElement("button");
+            liDel.id = "Del-" + li.id;
+            liDel.innerHTML = "Borrar";
+            liDel.onclick = () => {eliminar(li.id, dayData.celebration[i], dayData.img[i]);}
+            
+            
+            li.appendChild(liH3);
+            li.appendChild(liDel)
+        }
     }
 
     function closeDetail() {
         document.querySelector(".detail").style.display = "none";
+
+
+        while (document.querySelector(".detailUl").firstChild) {
+            document.querySelector(".detailUl").removeChild(document.querySelector(".detailUl").firstChild);
+        }
+
+        location.reload();
+    }
+
+    async function eliminar(id, ce, im) {
+        
+        try {
+            await updateDoc(doc(db, "Celebrations", id.slice(6)), {
+                celebration: arrayRemove(ce),
+                img: arrayRemove(im)
+            })
+                // .then(() => {
+                   
+                // })
+        } catch(err){
+            console.error(err);
+        }
+
+        console.log(id);
+        document.querySelector("#" + id).remove();
     }
 
     obtener();

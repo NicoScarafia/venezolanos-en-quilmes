@@ -103,14 +103,12 @@ window.addEventListener('load', function() {
 
             let passId = day.id;
 
-            // day.onclick = () => {openDetail(passId, arrayMonth[i+1]);}
             day.onmouseover = () => {hoverIn(passId);}
             day.onmouseout = () => {hoverOut(passId);}
             divNumber.className = "divNum";
-            // divNumber.onclick = () => {openDetail(passId, arrayMonth[i+1]);}
+            
             divImg.id = "divImg" + day.id;
             divImg.className = "divImg";
-            // divImg.onclick = () => {openDetail(passId, arrayMonth[i+1]);}
             
             document.querySelector("#dayGrid" + arrayMonth[i+1].slice(0,3)).appendChild(day);
             document.querySelector("#" + day.id).appendChild(divNumber);
@@ -125,7 +123,6 @@ window.addEventListener('load', function() {
     }
 
     function hoverOut(id) {
-        console.log(id);
         if(id.slice(0,3) === "pre" || id.slice(0,3) === "pos"){
             document.querySelector("#" + id).style.border = "1px solid black";
         } else {
