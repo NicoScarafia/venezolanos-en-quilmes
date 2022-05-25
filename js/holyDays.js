@@ -22,6 +22,10 @@ window.addEventListener('load', function() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore();
 
+    if(JSON.parse(sessionStorage.getItem("loginSomosVen"))){
+        document.querySelector(".addInput").style.display = "block"
+    }
+
     const addInput = document.querySelector(".addInput");
     addInput.onclick = () =>{
         document.querySelector(".input").style.display = "flex";

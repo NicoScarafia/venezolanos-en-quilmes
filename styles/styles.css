@@ -219,6 +219,7 @@ a {
   font-size: 3rem;
 }
 #calendar .title .addInput {
+  display: none;
   background-image: url("../assets/img/addIcon.png");
   background-size: contain;
   position: fixed;
@@ -436,7 +437,7 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   background-color: #e7d7d3;
   min-height: 100vh;
 }
@@ -445,6 +446,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .mainAdmin .loginAdm .buttons {
   display: flex;
@@ -455,13 +457,15 @@ a {
 .mainAdmin .loginAdm .buttons button {
   margin-left: 2rem;
   margin-top: 1rem;
+  height: 1.5rem;
+  padding: 0 0.5rem;
 }
 .mainAdmin .loginAdm #login {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 .mainAdmin .loginAdm #login .inputLog {
   display: flex;
@@ -474,9 +478,109 @@ a {
 .mainAdmin .loginAdm #login .inputLog input {
   width: 10rem;
 }
+.mainAdmin .loginAdm #login .msj {
+  height: 2rem;
+  text-align: center;
+}
 .mainAdmin .loginAdm #login .inputSubmit {
   display: flex;
   justify-content: center;
+}
+.mainAdmin .loginAdm #login .inputSubmit button {
+  height: 1.5rem;
+  padding: 0 0.5rem;
+}
+.mainAdmin .usersAdm {
+  display: none;
+  width: 60%;
+  margin-top: 2rem;
+}
+.mainAdmin .usersAdm .userAdmTitle {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.mainAdmin .usersAdm .userAdmTitle h2 {
+  width: 70%;
+}
+.mainAdmin .usersAdm .userAdmTitle button {
+  height: 1.5rem;
+  margin-right: 1rem;
+  padding: 0 0.5rem;
+}
+.mainAdmin .usersAdm .userAdmTitle #addUser {
+  display: none;
+}
+.mainAdmin .usersAdm .addUserInput {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mainAdmin .usersAdm .addUserInput label {
+  margin-left: 1rem;
+}
+.mainAdmin .usersAdm .addUserInput .inputText {
+  width: 8rem;
+  margin-left: 0.5rem;
+}
+.mainAdmin .usersAdm .addUserInput .redCross, .mainAdmin .usersAdm .addUserInput .greenCheck {
+  display: none;
+  width: 15px;
+}
+.mainAdmin .usersAdm .addUserInput .sudo {
+  margin-left: 1rem;
+}
+.mainAdmin .usersAdm .addUserInput button {
+  height: 1.5rem;
+  margin-left: 3rem;
+  padding: 0 0.5rem;
+}
+.mainAdmin .usersAdm .addUserInput .addUserMsj {
+  width: 100%;
+  margin-top: 1rem;
+  text-align: center;
+}
+.mainAdmin .usersAdm .userAdmUl {
+  margin: 2rem 0 0 5rem;
+}
+.mainAdmin .usersAdm .userAdmUl li {
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+  margin-bottom: 1rem;
+}
+.mainAdmin .usersAdm .activeUser {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+.mainAdmin .usersAdm .activeUser div {
+  display: flex;
+  flex-direction: row;
+}
+.mainAdmin .usersAdm .activeUser div h3 {
+  min-width: 30rem;
+}
+.mainAdmin .usersAdm .activeUser div h3 .logedUser {
+  color: green;
+}
+.mainAdmin .usersAdm .activeUser div button {
+  height: 1.5rem;
+  margin-right: 1rem;
+  padding: 0 0.5rem;
+}
+.mainAdmin .usersAdm .activeUser form {
+  display: none;
+  flex-direction: column;
+}
+.mainAdmin .usersAdm .activeUser form label {
+  margin: 1rem;
+}
+.mainAdmin .usersAdm .activeUser form #confirmChangeP {
+  margin-left: 15rem;
+  width: 5rem;
+  height: 1.5rem;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

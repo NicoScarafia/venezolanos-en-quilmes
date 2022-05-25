@@ -21,7 +21,7 @@
                 <img class="main-logo" src="../assets/logo.png" alt="Logo Somos Venezolanos en Quilmes">
             </a>
             <a class="link-right" href="#redes">Nuestras Redes</a>
-            <a class="link-right" href="#Calendar">Calendario</a>
+            <a class="link-right" href="calendar.html">Calendario</a>
         </nav>
     </header>
     
@@ -30,10 +30,10 @@
     </div>
 
     <main class="mainAdmin">
+        
         <section class="loginAdm">
             <div class="buttons">
-                <button>Agregar Administrador</button>
-                <button>Cerrar Sesion</button>
+                <button id="closeSession">Cerrar Sesion</button>
             </div>
             
             <div id="login">
@@ -48,12 +48,60 @@
                         <input type="password" name="pass" id="pass">
                     </div>
 
+                    <h3 class="msj"></h3>
+
                     <div class="inputSubmit">
-                        <button type="submit" id="submit">Iniciar Sesion</button>
+                        <button id="submit">Iniciar Sesion</button>
                     </div>
+                </form>                
+            </div>
+        </section>
+
+        <section class="usersAdm">
+            <div class="userAdmTitle">
+                <h2>Usuarios:</h2>
+                <button id="addUser">Agregar Usuario</button>
+            </div>
+
+            <div class="addUserInput">
+                <form>
+                    <label for="newUser">Usuario: </label>
+                    <input class="inputText" type="text" name="newUser" id="newUser">
+
+                    <label class="inputText" for="password0">Contraseña: </label>
+                    <input class="inputText" type="password" name="pass0" id="pass0">
+                    <label for="password1">Repita Contraseña: </label>
+                    <input class="inputText" type="password" name="pass1" id="pass1">
+                    <img class="redCross" src="../assets/img/redCross.png" alt="">
+                    <img class="greenCheck" src="../assets/img/greenCheck.png" alt="">
+                    <input class="sudo" type="checkbox" name="sudo" id="sudo"> Superusuario
+                    <button id="confirmUser">Agregar</button>
                 </form>
 
-                <h3 class="msj"></h3>
+                <h4 class="addUserMsj"></h4>
+                
+            </div>
+
+            <ul class="userAdmUl"></ul>
+
+            <div class="activeUser">
+                <div>
+                    <h3>Usuario Activo: <span class="logedUser"></span></h3>
+                    <button class="changePass">Cambiar Contraseña</button>
+                </div>
+                
+                <form id="changePassUser">
+                    <div>
+                        <label for="currentPass">Contraseña Actual: <input type="password" name="currentPass" id="currentPass"></label>
+                    </div>
+                    
+                    <div>
+                        <label for="newPass0">Contraseña Nueva: <input type="password" name="NewPass0" id="newPass0"></label>                    
+                        <label for="newPass1">Repita Contraseña Nueva: <input type="password" name="newPass1" id="newPass1"></label>
+                    </div>
+
+                    <button id="confirmChangeP">Aceptar</button>
+                </form>
             </div>
         </section>
         

@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     background-color: $light;
     min-height: 100vh;
     
@@ -11,6 +11,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 2rem;
 
         .buttons {
             display: flex;
@@ -21,6 +22,8 @@
             button {
                 margin-left: 2rem;
                 margin-top: 1rem;
+                height: 1.5rem;
+                padding: 0 0.5rem;
             }
         }
     
@@ -29,7 +32,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            padding-top: 2rem;
+            padding-top: 1rem;
 
             .inputLog {
                 display: flex;
@@ -45,9 +48,141 @@
                 }
             }
 
+            .msj {
+                height: 2rem;
+                text-align: center;
+            }
+
             .inputSubmit {
                 display: flex;
                 justify-content: center;
+
+                button {
+                    height: 1.5rem;
+                    padding: 0 0.5rem;
+                }
+            }
+
+            
+        }
+    }
+
+    .usersAdm {
+        display: none;
+        width: 60%; 
+        margin-top: 2rem;
+
+        .userAdmTitle {
+            display: flex;
+            margin-bottom: 1rem;
+
+            h2 {
+                width: 70%;
+            }
+
+            button {
+                height: 1.5rem;
+                margin-right: 1rem;
+                padding: 0 0.5rem;
+            } 
+            
+            #addUser {
+                display: none;
+            }
+        }
+
+        .addUserInput {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+
+            label {
+                margin-left: 1rem;
+            }
+
+            .inputText {
+                width: 8rem;
+                margin-left: 0.5rem;
+            }
+
+            .redCross, .greenCheck {
+                display: none;
+                width: 15px;
+            }
+
+            .sudo {
+                margin-left: 1rem;
+            }
+
+            button {
+                height: 1.5rem;
+                margin-left: 3rem;
+                padding: 0 0.5rem;
+            }
+
+            .addUserMsj {
+                width: 100%;
+                margin-top: 1rem;
+                text-align: center;
+            }
+        }
+
+        .userAdmUl {
+            margin: 2rem 0 0 5rem;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                width: 20rem;
+                margin-bottom: 1rem;
+
+                .delete {
+                    
+                }
+            }
+
+        }
+
+        .activeUser {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3rem;
+
+            div {
+                display: flex;
+                flex-direction: row;
+
+                h3 {
+                    min-width: 30rem;
+
+                    .logedUser {
+                        color: green;
+                    }
+                }
+            
+                button {
+                    height: 1.5rem;
+                    margin-right: 1rem;
+                    padding: 0 0.5rem;
+                }
+    
+            }
+            
+            form {
+                display: none;
+                flex-direction: column;
+
+                label {
+                    margin: 1rem;
+                }
+
+                #confirmChangeP {
+                    margin-left: 15rem;
+                    width: 5rem;
+                    height: 1.5rem;
+                    margin-top: 1rem;
+                    padding: 0 0.5rem;
+                }
             }
         }
     }
