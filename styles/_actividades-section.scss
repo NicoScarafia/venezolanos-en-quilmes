@@ -1,10 +1,13 @@
 #actividades {
-    padding-top: 3rem;
+    margin-top: 3rem;
+    background-color: $blue;
+    padding: 2.3rem 0;
 
     h2 {
         @include HomeTitle;
-        padding-left: 6rem;
         margin-bottom: 1.5rem;
+        text-align: center;
+        color: white;
     }
 
     .actividades_content {
