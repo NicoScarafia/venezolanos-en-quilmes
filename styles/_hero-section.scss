@@ -6,10 +6,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    position: relative;
+
     img {
         height: 100%;
-        padding: 0.5rem 0;
+    }
+    .hero-logo {
+        width: 15rem;
+        margin-top: -2rem;
+        margin-right: -3.5rem;
+        
+        img {
+            width: 100%;
+        }
     }
 
     h1 {
@@ -52,5 +61,4 @@
             margin-left: 10rem;
         }
     }
-
 }

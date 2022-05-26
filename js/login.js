@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-import { getFirestore, doc, collection, setDoc, getDoc, getDocs, deleteDoc, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
-
+import { getFirestore, doc, addDoc, collection, setDoc, getDoc, getDocs, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js"
 
 window.addEventListener('load', function() {
 
@@ -247,7 +247,95 @@ window.addEventListener('load', function() {
         }
     }
 
+    const form = document.querySelector("#uploader");
+
+    const uplMsj = document.createElement("h4");
     
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let fileInput = form.querySelector("#image");
+
+        console.log(fileInput.files);
+
+        let file = fileInput.files[0];
+
+        uplMsj.innerHTML = "Cargando imagen, Por favor espere."
+        document.querySelector("#uplMsj").appendChild(uplMsj)
+        publish({ file });
+        
+
+    })
+    
+    const upload = async ({file}) => {
+        let storage = getStorage();
+
+        const storageRef = ref(storage, "images/" + file.name);
+        try {
+            await uploadBytes(storageRef, file)
+            .then((snapshot) => {
+                console.log("Uploaded");            
+            })
+        } catch (err) {
+            console.log(err);
+        }
+        
+        return storageRef;
+    }
+
+    const addDocu = async({colle, data}) => {
+        let docu = {
+            ...data,
+            date: new Date().toString()
+        }
+
+        // console.log(docu);
+        // console.log(docu.date);
+        // const obtener = document.createElement("button")
+        // obtener.id = docu.date;
+        // obtener.innerHTML = "obtener"
+        // obtener.onclick = () => {
+        //     query(docu.date)
+        // }
+
+        // document.querySelector(".activitiesAdm").appendChild(obtener)
+        await addDoc(collection(db, colle), docu)
+            .then(() => {query(docu.date)})
+    }
+
+    const publish = async ({file}) => {
+        let storageRef = await upload({file});
+
+        return addDocu({colle: "Activities", data: {path: storageRef.fullPath}})
+    
+    }
+
+    async function query(data) {
+        let route;
+        let fileData;
+        let path;
+        await getDocs(collection(db, "Activities"))
+            .then((resp) => {
+                fileData = resp.docs.map((doc) => (doc.data()))
+                console.log(fileData);
+            })
+        console.log(data);
+        for(let i = 0; i < fileData.length; i++){
+            if(fileData[i].date === data){
+                path = fileData[i].path
+            }
+        }
+        console.log(path);
+
+        const pathRef = ref(getStorage(), path);
+
+        getDownloadURL(pathRef)
+            .then((url) => {
+                const imagenDown = document.querySelector("#imagenDown");
+                imagenDown.setAttribute('src', url);
+                uplMsj.innerHTML = "Imagen Cargada."
+            })
+    }  
 
 
 }, false)

@@ -83,7 +83,7 @@
             </div>
 
             <ul class="userAdmUl"></ul>
-
+        
             <div class="activeUser">
                 <div>
                     <h3>Usuario Activo: <span class="logedUser"></span></h3>
@@ -105,6 +105,27 @@
             </div>
         </section>
         
+        <section class="activitiesAdm">
+            <h2>Agregar nueva actividad:</h2>
+
+            <div class="uploader">
+                <form action="" id="uploader">
+                    <div>
+                        <label for="title">Titulo </label>
+                        <input type="text" name="title" id="uploaderTitle">
+                        <label for="description">Detalle </label>
+                        <textarea name="description" id="uploaderDescr" cols="30" rows="10"></textarea>
+
+                        <input type="file" name="image" id="image">
+                        
+                        <div id="uplMsj"></div>
+                        <button type="submit" id="upload">Cargar Imagen</button>
+                    </div>
+                </form>
+
+                <img id="imagenDown" src="" alt="">
+            </div>
+        </section>
     </main>
 
     <script type="module" src="../js/login.js"></script>

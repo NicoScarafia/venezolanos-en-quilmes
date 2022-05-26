@@ -21,3 +21,9 @@ $text-font: 'Roboto', sans-serif;
     font-size: 3.3rem;
     letter-spacing: -0.1rem;
 }
+
+@mixin Opacity( $opacityNumber:80% ) {
+    opacity: $opacityNumber;
+    -moz-opacity: $opacityNumber;
+    -webkit-opacity: $opacityNumber;
+}
