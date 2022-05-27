@@ -18,6 +18,12 @@ window.addEventListener('load', function() {
         appId: "1:253616014487:web:f7eaa6893b13671bd815d2"
     };
 
+    for(let i = 0; i < 10; i++){
+        let punto = ".";
+        
+        console.log(punto.repeat(i));
+    }
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore();
@@ -301,6 +307,9 @@ window.addEventListener('load', function() {
     fileInput.addEventListener("change", () => {mostrar()});
 
     const titleUpl = document.querySelector("#uploaderTitle");
+    titleUpl.onclick = () => {
+        uplMsj.innerHTML = "";
+    }
     const descriptionUpl = document.querySelector("#uploaderDescr");
     const linkUpl = document.querySelector("#uploaderLink");
 
@@ -371,6 +380,7 @@ window.addEventListener('load', function() {
                 titleUpl.value = "";
                 descriptionUpl.value = "";
                 document.querySelector("#imagenDown").src = ""
+                linkUpl.value = "";
             })
     }
 

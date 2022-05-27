@@ -22,8 +22,13 @@ window.addEventListener('load', function() {
     const db = getFirestore();
 
     const actividades_content = document.querySelector(".actividades_content");
+    actividades_content.style.display = "none";
 
-    
+    const actividades = document.querySelector("#actividades");
+    const carga = document.createElement("h2");
+    carga.className = "carga";
+    carga.innerHTML = "CARGANDO"
+    actividades.appendChild(carga);
 
     let fileData;
 
@@ -32,7 +37,7 @@ window.addEventListener('load', function() {
     async function queryData() {
         console.log("Query");
         
-        await getDocs(query(collection(db, "Activities"), orderBy("date"), limit(9)))
+        await getDocs(query(collection(db, "Activities"), orderBy("date"), limit(6)))
             .then((resp) => {
                 fileData = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
                 console.log(fileData);
@@ -129,7 +134,7 @@ window.addEventListener('load', function() {
             del.id = "del" + dateid;
             del.className = "del";
 
-            if(JSON.parse(sessionStorage.getItem("sudoSV"))){
+            if(JSON.parse(sessionStorage.getItem("loginSomosVen"))){
                 console.log("sudo");
                 del.style.display = "block";
             } else {
@@ -155,8 +160,12 @@ window.addEventListener('load', function() {
                     console.log(imgUrl);
                     imgUrl.src = url;
                 })
+            
+            let punto = ".".repeat(i)
+            carga.innerHTML = "CARGANDO" + punto;
         }
-
+        carga.style.display = "none";
+        actividades_content.style.display = "flex";
         console.log("end");
     }
 

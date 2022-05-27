@@ -152,7 +152,9 @@
                 margin-bottom: 1rem;
 
                 .delete {
-                    
+                    height: 1.5rem;
+                    margin-right: 1rem;
+                    padding: 0 0.5rem;
                 }
             }
 
@@ -171,7 +173,8 @@
                     min-width: 30rem;
 
                     .logedUser {
-                        color: green;
+                        color: rgb(2, 187, 2);
+                        margin-left: 2rem;
                     }
                 }
             

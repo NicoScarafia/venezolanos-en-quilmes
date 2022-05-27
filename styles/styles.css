@@ -188,6 +188,9 @@ a {
 }
 
 #actividades {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 3rem;
   background-color: #0a5aa2;
   padding: 2.3rem 0;
@@ -200,6 +203,13 @@ a {
   margin-bottom: 1.5rem;
   text-align: center;
   color: white;
+}
+#actividades .carga {
+  justify-items: center;
+  text-align: start;
+  width: 30rem;
+  margin-top: 3rem;
+  border: 1px solid black;
 }
 #actividades .actividades_content {
   display: flex;
@@ -636,6 +646,11 @@ a {
   width: 20rem;
   margin-bottom: 1rem;
 }
+.mainAdmin .usersAdm .userAdmUl li .delete {
+  height: 1.5rem;
+  margin-right: 1rem;
+  padding: 0 0.5rem;
+}
 .mainAdmin .usersAdm .activeUser {
   display: flex;
   flex-direction: column;
@@ -649,7 +664,8 @@ a {
   min-width: 30rem;
 }
 .mainAdmin .usersAdm .activeUser div h3 .logedUser {
-  color: green;
+  color: #02bb02;
+  margin-left: 2rem;
 }
 .mainAdmin .usersAdm .activeUser div button {
   height: 1.5rem;
@@ -821,6 +837,25 @@ footer .footer_contacto a i {
 }
 footer .footer_contacto ul {
   list-style: none;
+}
+
+.whatsapp-button {
+  position: fixed;
+  top: 82vh;
+  right: 4vw;
+  z-index: 10000;
+  padding: 1rem;
+  border: 0.12rem solid #e7d7d3;
+  background-color: #25D366;
+  border-radius: 50%;
+  transition: 0.2s all;
+}
+.whatsapp-button i {
+  color: white;
+  font-size: 2rem;
+}
+.whatsapp-button:hover {
+  background-color: #075E54;
 }
 
 /*# sourceMappingURL=styles.css.map */
