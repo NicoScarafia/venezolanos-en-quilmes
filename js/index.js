@@ -37,7 +37,7 @@ window.addEventListener('load', function() {
     async function queryData() {
         console.log("Query");
         
-        await getDocs(query(collection(db, "Activities"), orderBy("date"), limit(6)))
+        await getDocs(query(collection(db, "Activities"), orderBy("date", "desc"), limit(6)))
             .then((resp) => {
                 fileData = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
                 console.log(fileData);
@@ -108,7 +108,7 @@ window.addEventListener('load', function() {
             span.innerHTML = "Publicado el " + fileData[i].date.toDate().toLocaleDateString('en-GB');
             card_main_text.id = "card_main_text" + dateid;
             act_texto.id = "act_texto" + dateid;
-            act_texto.innerHTML = fileData[i].description;
+            act_texto.innerHTML = fileData[i].description.slice(0,370) + "...";
             card_link.id = "card_link" + dateid;
             act_link.id = "act_link" + dateid;
             act_link.href = fileData[i].link
@@ -129,12 +129,20 @@ window.addEventListener('load', function() {
                         document.querySelector("#card_link" + dateid).appendChild(act_link);
                             document.querySelector("#act_link" + dateid).appendChild(i1);
 
+            const verMas = document.createElement("a");
+            verMas.id = "verMas" + dateid;
+            verMas.className = "verMas"
+            verMas.innerHTML = "Ver Mas"
+            verMas.href = "pages/actividades.html#" + dateid;
+
+            document.querySelector("#card_main_text" + dateid).appendChild(verMas);
+
             const del = document.createElement("button");
             del.innerHTML = "Eliminar"
             del.id = "del" + dateid;
             del.className = "del";
 
-            if(JSON.parse(sessionStorage.getItem("loginSomosVen"))){
+            if(JSON.parse(sessionStorage.getItem("sudoSV"))){
                 console.log("sudo");
                 del.style.display = "block";
             } else {

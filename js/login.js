@@ -156,7 +156,10 @@ window.addEventListener('load', function() {
     changePass.onclick = () => {changeP()};
 
     const cancelChangeP = document.querySelector("#cancelChangeP");
-    cancelChangeP.onclick = () => {document.querySelector("#changePassUser").style.display = "none"};
+    cancelChangeP.onclick = (e) => {
+        e.preventDefault();    
+        document.querySelector("#changePassUser").style.display = "none"
+    };
 
     const newUser = document.querySelector("#newUser");
     const pass0 = document.querySelector("#pass0");
