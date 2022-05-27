@@ -2,8 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
@@ -17,31 +16,22 @@ a {
 }
 
 .navbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   padding: 0 8rem;
   background-color: #f14143;
   max-height: 5rem;
 }
-
 .navbar .link-left, .navbar .link-right {
   color: #feee4e;
   font-size: 1.2rem;
   margin: 0 1.5rem;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   position: relative;
 }
-
 .navbar .link-left::after, .navbar .link-right::after {
-  content: ' ';
+  content: " ";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -49,34 +39,21 @@ a {
   width: 100%;
   height: 0.12rem;
   border-radius: 0.5rem;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: right;
-          transform-origin: right;
-  -webkit-transition: -webkit-transform 250ms ease-in;
-  transition: -webkit-transform 250ms ease-in;
+  transform: scaleX(0);
+  transform-origin: right;
   transition: transform 250ms ease-in;
-  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
 }
-
 .navbar .link-left:hover, .navbar .link-right:hover {
   color: #e7e4d3;
 }
-
 .navbar .link-left:hover::after, .navbar .link-right:hover::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transform-origin: left;
-          transform-origin: left;
+  transform: scaleX(1);
+  transform-origin: left;
 }
-
 .navbar .link-left:hover::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transform-origin: right;
-          transform-origin: right;
+  transform: scaleX(1);
+  transform-origin: right;
 }
-
 .navbar .main-logo {
   width: 4rem;
   margin: 0 2rem;
@@ -87,17 +64,10 @@ a {
   min-height: 22rem;
   height: 60vh;
   background-color: #0a5aa2;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .hero-section h1 {
   font-family: "Merienda One", cursive;
   font-size: 3.2rem;
@@ -106,7 +76,6 @@ a {
   letter-spacing: -0.3rem;
   margin-top: -1rem;
 }
-
 .hero-section h1 .venezolanos {
   font-size: 6rem;
   background: url("../assets/img/bandera-venezuela-2.jpg");
@@ -118,7 +87,6 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .hero-section h1 .quilmes {
   font-size: 6rem;
   background: url("../assets/img/bandera-argentina.jpg");
@@ -130,11 +98,9 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .hero-section h1 .somos {
   margin-left: 6rem;
 }
-
 .hero-section h1 .second-line {
   margin-left: 10rem;
 }
@@ -142,7 +108,6 @@ a {
 #about {
   padding-top: 3rem;
 }
-
 #about h2 {
   font-family: "Signika Negative", sans-serif;
   color: #141720;
@@ -150,7 +115,6 @@ a {
   letter-spacing: -0.1rem;
   padding-left: 6rem;
 }
-
 #about .about_subheading {
   width: 30rem;
   font-size: 1.3rem;
@@ -158,24 +122,19 @@ a {
   text-align: center;
   margin: 2rem auto;
 }
-
 #about .about_content {
   position: relative;
 }
-
 #about .about_content .about_image {
   width: 100%;
   height: 20rem;
   position: relative;
 }
-
 #about .about_content .about_image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-
 #about .about_content .about_text {
   position: absolute;
   left: 0;
@@ -191,17 +150,11 @@ a {
   line-height: 1.6rem;
   background-color: #e7e4d3;
 }
-
 #about .about_link {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-top: 7rem;
 }
-
 #about .about_link a {
   width: 7rem;
   background-color: #f14143;
@@ -209,10 +162,8 @@ a {
   border-radius: 0.5rem;
   color: white;
   text-align: center;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-
 #about .about_link a:hover {
   color: #e7e4d3;
   background-color: #0a5aa2;
@@ -221,7 +172,6 @@ a {
 #actividades {
   padding-top: 3rem;
 }
-
 #actividades h2 {
   font-family: "Signika Negative", sans-serif;
   color: #141720;
@@ -229,4 +179,5 @@ a {
   letter-spacing: -0.1rem;
   padding-left: 6rem;
 }
+
 /*# sourceMappingURL=styles.css.map */
