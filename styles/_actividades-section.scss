@@ -34,8 +34,8 @@
 
     .actividades_card {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: center;
+        align-items: space-around;
         margin: 1rem auto;
 
         width: 35rem; height: 23rem;
@@ -81,7 +81,7 @@
             }
             .card_link {
                 display: flex;
-                justify-content: end;
+                justify-content: flex-end;
                 font-size: 1.1rem;
                 margin-top: 0.5rem;
                 
