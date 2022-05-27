@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-import { getFirestore, doc, addDoc, collection, setDoc, getDoc, getDocs, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js"
+import { getFirestore, doc, addDoc, collection, setDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js"
 
 window.addEventListener('load', function() {
 
@@ -33,6 +33,7 @@ window.addEventListener('load', function() {
     if(JSON.parse(sessionStorage.getItem("loginSomosVen"))){
         logTrue = sessionStorage.getItem("loginSomosVen");
         document.querySelector(".usersAdm").style.display = "block";
+        document.querySelector(".activitiesAdm").style.display = "flex";
         document.querySelector("#login").style.display = "none"
         userLog = sessionStorage.getItem("usuarioSV")
         document.querySelector(".logedUser").innerHTML = userLog;
@@ -84,6 +85,7 @@ window.addEventListener('load', function() {
                 logTrue = true;
                 sessionStorage.setItem("loginSomosVen", true);
                 document.querySelector(".usersAdm").style.display = "block";
+                document.querySelector(".activitiesAdm").style.display = "flex";
 
                 if(userData.data().sudo === true){
                     document.querySelector("#addUser").style.display = "block";
@@ -147,6 +149,9 @@ window.addEventListener('load', function() {
     const changePass = document.querySelector(".changePass");
     changePass.onclick = () => {changeP()};
 
+    const cancelChangeP = document.querySelector("#cancelChangeP");
+    cancelChangeP.onclick = () => {document.querySelector("#changePassUser").style.display = "none"};
+
     const newUser = document.querySelector("#newUser");
     const pass0 = document.querySelector("#pass0");
     const pass1 = document.querySelector("#pass1");
@@ -155,8 +160,42 @@ window.addEventListener('load', function() {
     const newPass0 = document.querySelector("#newPass0");
     const newPass1 = document.querySelector("#newPass1");
 
+    const confirmChangeP = document.querySelector("#confirmChangeP");
+    confirmChangeP.onclick = (e) => {
+        e.preventDefault();    
+        changePassword(currentPass.value, newPass0.value, newPass1.value);
+    }
+
     async function changeP(){
         document.querySelector("#changePassUser").style.display = "flex"
+    }
+
+    async function changePassword(cp, p0, p1) {
+        let us = await getDoc(doc(db, "Users", sessionStorage.getItem("usuarioSV")))
+        const changePassMsj = document.querySelector("#changePassMsj");
+        console.log(us);
+        if(us.data().pass === cp) {
+            if(p0 === p1 && p0 !== ""){
+                await updateDoc(doc(db, "Users", (sessionStorage.getItem("usuarioSV"))), {
+                    pass: p0
+                })
+                    .then(() => {
+                        changePassMsj.innerHTML = "Contraseña actulizada.";
+                        changePassMsj.style.color = "green";
+                        currentPass.value = "";
+                        newPass0.value = "";
+                        newPass1.value = "";
+                    })
+            } else {
+                changePassMsj.innerHTML = "Las contraseñas nuevas no coinciden.";
+                changePassMsj.style.color = "red";
+            }
+        } else {
+            changePassMsj.innerHTML = "Contraseña actual incorrecta.";
+            changePassMsj.style.color = "red";
+        }
+
+        us = ""
     }
 
     const addUser = document.querySelector("#addUser");
@@ -170,6 +209,12 @@ window.addEventListener('load', function() {
     confirmUser.onclick = (e) => {
         e.preventDefault();
         addUserB(newUser.value, pass0.value, pass1.value)}
+    
+    const addUserClose = document.querySelector("#addUserClose");
+    addUserClose.onclick = (e) => {
+        e.preventDefault()
+        document.querySelector(".addUserInput").style.display = "none"
+    }
 
     async function addUserB(us, p0, p1) {
         
@@ -201,10 +246,11 @@ window.addEventListener('load', function() {
             }
 
         } else {
-            document.querySelector(".addUserMsj").innerHTML = "¡El usuario ya esta registrado o las contraseñas no coinciden!"
+            document.querySelector(".addUserMsj").innerHTML = "¡El usuario ya esta registrado, no ha ingresado un usuario valido o las contraseñas no coinciden!"
             document.querySelector(".addUserMsj").style.color = "red"
         }
     }
+    
 
     async function eliminar(id) {
         await deleteDoc(doc(db, "Users", id))
@@ -221,7 +267,7 @@ window.addEventListener('load', function() {
         console.log(p0);
         console.log(p1);
         console.log(us);
-        if(p0 !== p1 || p0 === "" || p1 === ""){
+        if(p0 !== p1 || p0 === "" || p1 === "" || us === ""){
             return false;
         } 
 
@@ -240,6 +286,9 @@ window.addEventListener('load', function() {
         sessionStorage.setItem("usuarioSV", "");
         document.querySelector("#login").style.display = "flex";
         document.querySelector(".usersAdm").style.display = "none";
+        document.querySelector(".addUserInput").style.display = "none";
+        document.querySelector(".activitiesAdm").style.display = "none";
+        document.querySelector("#changePassUser").style.display = "none"
         user.value = "";
         pass.value = "";
         while(document.querySelector(".userAdmUl").firstChild){
@@ -248,6 +297,30 @@ window.addEventListener('load', function() {
     }
 
     const form = document.querySelector("#uploader");
+
+    const fileInput = form.querySelector("#image");
+    fileInput.addEventListener("change", () => {mostrar()});
+
+    const titleUpl = document.querySelector("#uploaderTitle");
+    const descriptionUpl = document.querySelector("#uploaderDescr");
+    const linkUpl = document.querySelector("#uploaderLink");
+
+    function mostrar() {
+        console.log(fileInput.file);
+        const filesPreview = fileInput.files;
+
+        if (!filesPreview || !filesPreview.length) {
+            document.querySelector("#imagenDown").src = "";
+            return;
+        }
+        
+        console.log(filesPreview);
+        const filePreview = filesPreview[0];
+        const urlFile = URL.createObjectURL(filePreview);
+
+        document.querySelector("#imagenDown").src = urlFile;
+    }
+
 
     const uplMsj = document.createElement("h4");
     
@@ -260,7 +333,7 @@ window.addEventListener('load', function() {
 
         let file = fileInput.files[0];
 
-        uplMsj.innerHTML = "Cargando imagen, Por favor espere."
+        uplMsj.innerHTML = "Subiendo publicacion, Por favor espere."
         document.querySelector("#uplMsj").appendChild(uplMsj)
         publish({ file });
         
@@ -270,7 +343,7 @@ window.addEventListener('load', function() {
     const upload = async ({file}) => {
         let storage = getStorage();
 
-        const storageRef = ref(storage, "images/" + file.name);
+        const storageRef = ref(storage, file.name);
         try {
             await uploadBytes(storageRef, file)
             .then((snapshot) => {
@@ -286,21 +359,19 @@ window.addEventListener('load', function() {
     const addDocu = async({colle, data}) => {
         let docu = {
             ...data,
-            date: new Date().toString()
+            date: Timestamp.fromDate(new Date()),
+            title: titleUpl.value,
+            description: descriptionUpl.value,
+            link: linkUpl.value
         }
 
-        // console.log(docu);
-        // console.log(docu.date);
-        // const obtener = document.createElement("button")
-        // obtener.id = docu.date;
-        // obtener.innerHTML = "obtener"
-        // obtener.onclick = () => {
-        //     query(docu.date)
-        // }
-
-        // document.querySelector(".activitiesAdm").appendChild(obtener)
         await addDoc(collection(db, colle), docu)
-            .then(() => {query(docu.date)})
+            .then(() => {
+                uplMsj.innerHTML = "Publicacion subida.";
+                fileInput.value = "";
+                titleUpl.value = "";
+                descriptionUpl.value = "";
+            })
     }
 
     const publish = async ({file}) => {
@@ -309,33 +380,6 @@ window.addEventListener('load', function() {
         return addDocu({colle: "Activities", data: {path: storageRef.fullPath}})
     
     }
-
-    async function query(data) {
-        let route;
-        let fileData;
-        let path;
-        await getDocs(collection(db, "Activities"))
-            .then((resp) => {
-                fileData = resp.docs.map((doc) => (doc.data()))
-                console.log(fileData);
-            })
-        console.log(data);
-        for(let i = 0; i < fileData.length; i++){
-            if(fileData[i].date === data){
-                path = fileData[i].path
-            }
-        }
-        console.log(path);
-
-        const pathRef = ref(getStorage(), path);
-
-        getDownloadURL(pathRef)
-            .then((url) => {
-                const imagenDown = document.querySelector("#imagenDown");
-                imagenDown.setAttribute('src', url);
-                uplMsj.innerHTML = "Imagen Cargada."
-            })
-    }  
 
 
 }, false)

@@ -75,7 +75,9 @@
                     <img class="redCross" src="../assets/img/redCross.png" alt="">
                     <img class="greenCheck" src="../assets/img/greenCheck.png" alt="">
                     <input class="sudo" type="checkbox" name="sudo" id="sudo"> Superusuario
-                    <button id="confirmUser">Agregar</button>
+                    <button type="submit" id="confirmUser">Agregar</button>
+
+                    <button id="addUserClose">X</button>
                 </form>
 
                 <h4 class="addUserMsj"></h4>
@@ -100,7 +102,13 @@
                         <label for="newPass1">Repita Contraseña Nueva: <input type="password" name="newPass1" id="newPass1"></label>
                     </div>
 
-                    <button id="confirmChangeP">Aceptar</button>
+                    <h4 id="changePassMsj"></h4>
+
+                    <div>
+                        <button id="confirmChangeP">Aceptar</button>
+                        <button id="cancelChangeP">Cancelar</button>
+                    </div>
+                    
                 </form>
             </div>
         </section>
@@ -115,18 +123,25 @@
                         <input type="text" name="title" id="uploaderTitle">
                         <label for="description">Detalle </label>
                         <textarea name="description" id="uploaderDescr" cols="30" rows="10"></textarea>
+                        <label for="link">Link </label>
+                        <input type="text" name="link" id="uploaderLink">
 
                         <input type="file" name="image" id="image">
                         
                         <div id="uplMsj"></div>
-                        <button type="submit" id="upload">Cargar Imagen</button>
+                        <button type="submit" id="upload">Subir Publicación</button>
                     </div>
                 </form>
 
-                <img id="imagenDown" src="" alt="">
+                <div class="imagenDown">
+                    <img id="imagenDown" src="" alt="">
+                </div>
+                
             </div>
         </section>
     </main>
+
+    
 
     <script type="module" src="../js/login.js"></script>
 </body>

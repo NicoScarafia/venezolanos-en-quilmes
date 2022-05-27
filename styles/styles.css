@@ -237,7 +237,7 @@ a {
 #actividades .actividades_card .card_text .card_date i {
   margin-right: 0.2rem;
 }
-#actividades .actividades_card .card_text .card_main-text {
+#actividades .actividades_card .card_text .card_main_text {
   font-family: "Roboto", sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
@@ -596,10 +596,22 @@ a {
 .mainAdmin .usersAdm .addUserInput .sudo {
   margin-left: 1rem;
 }
-.mainAdmin .usersAdm .addUserInput button {
+.mainAdmin .usersAdm .addUserInput #confirmUser {
   height: 1.5rem;
   margin-left: 3rem;
   padding: 0 0.5rem;
+}
+.mainAdmin .usersAdm .addUserInput #addUserClose {
+  border-radius: 0.65rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  color: white;
+  background-color: red;
+  border: 1px solid red;
+  margin-left: 0.5rem;
+}
+.mainAdmin .usersAdm .addUserInput #addUserClose:active {
+  transform: scale(0.9);
 }
 .mainAdmin .usersAdm .addUserInput .addUserMsj {
   width: 100%;
@@ -642,7 +654,7 @@ a {
 .mainAdmin .usersAdm .activeUser form label {
   margin: 1rem;
 }
-.mainAdmin .usersAdm .activeUser form #confirmChangeP {
+.mainAdmin .usersAdm .activeUser form #confirmChangeP, .mainAdmin .usersAdm .activeUser form #cancelChangeP {
   margin-left: 15rem;
   width: 5rem;
   height: 1.5rem;
@@ -650,19 +662,19 @@ a {
   padding: 0 0.5rem;
 }
 .mainAdmin .activitiesAdm {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
+  margin-top: 3rem;
   width: 100%;
 }
 .mainAdmin .activitiesAdm .uploader {
   display: flex;
   width: 90%;
   margin-top: 2rem;
-  border: 1px solid black;
 }
 .mainAdmin .activitiesAdm .uploader #uploader {
-  width: 40%;
+  width: 60%;
   height: 25rem;
 }
 .mainAdmin .activitiesAdm .uploader #uploader div {
@@ -676,13 +688,29 @@ a {
 }
 .mainAdmin .activitiesAdm .uploader #uploader div input {
   margin-bottom: 1rem;
+  height: 1.5rem;
+  padding: 0 0.5rem;
 }
 .mainAdmin .activitiesAdm .uploader #uploader div textarea {
+  width: 100%;
   margin-bottom: 2rem;
 }
-.mainAdmin .activitiesAdm .uploader img {
+.mainAdmin .activitiesAdm .uploader #uploader div #uplMsj h4 {
+  text-align: center;
+}
+.mainAdmin .activitiesAdm .uploader #uploader div button {
+  align-self: center;
+  margin-top: 3rem;
+  width: 10rem;
+  height: 1.5rem;
+  padding: 0 0.5rem;
+}
+.mainAdmin .activitiesAdm .uploader .imagenDown {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: 25rem;
-  margin-left: 5rem;
+  margin-left: 2rem;
   border: 1px solid black;
 }
 
