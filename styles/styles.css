@@ -59,6 +59,11 @@ a {
   width: 4rem;
   margin: 0 2rem;
 }
+.navbar .login {
+  justify-self: end;
+  position: absolute;
+  right: 2rem;
+}
 
 .hero-section {
   width: 100%;
@@ -259,6 +264,9 @@ a {
 }
 #actividades .actividades_card .card_text .card_link i:hover {
   background-color: #f14143;
+}
+#actividades .actividades_card .card_text .del {
+  display: none;
 }
 
 .mainCalendar {
@@ -507,6 +515,7 @@ a {
   align-items: center;
   background-color: #e7d7d3;
   min-height: 100vh;
+  height: fit-content;
 }
 .mainAdmin .loginAdm {
   width: 100%;
@@ -666,11 +675,12 @@ a {
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
+  padding-bottom: 5rem;
   width: 100%;
 }
 .mainAdmin .activitiesAdm .uploader {
   display: flex;
-  width: 90%;
+  width: 50%;
   margin-top: 2rem;
 }
 .mainAdmin .activitiesAdm .uploader #uploader {
@@ -697,25 +707,27 @@ a {
 }
 .mainAdmin .activitiesAdm .uploader #uploader div #uplMsj h4 {
   text-align: center;
+  height: 1rem;
 }
 .mainAdmin .activitiesAdm .uploader #uploader div button {
   align-self: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
   width: 10rem;
   height: 1.5rem;
   padding: 0 0.5rem;
 }
 .mainAdmin .activitiesAdm .uploader .imagenDown {
   display: flex;
+  background-color: white;
   justify-content: center;
-  width: 100%;
+  width: 70%;
   height: 25rem;
   margin-left: 2rem;
   border: 1px solid black;
 }
 
 #redes {
-  padding: 0 10rem;
+  padding: 0 10rem 5rem 0;
 }
 #redes h2 {
   font-family: "Signika Negative", sans-serif;
@@ -775,7 +787,7 @@ a {
 }
 
 footer {
-  margin-top: 6rem;
+  padding-top: 6rem;
   background-color: #0a5aa2;
   padding: 1.5rem 3rem;
   display: flex;

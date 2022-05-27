@@ -5,6 +5,7 @@
     align-items: center;
     background-color: $light;
     min-height: 100vh;
+    height: fit-content;
     
     .loginAdm{
         width: 100%;
@@ -206,11 +207,13 @@
         flex-direction: column;
         align-items: center;
         margin-top: 3rem;
+        padding-bottom: 5rem;
         width: 100%;
+        
 
         .uploader {
             display: flex;
-            width: 90%;
+            width: 50%;
             margin-top: 2rem;
             
             #uploader {
@@ -241,12 +244,13 @@
                     #uplMsj {
                         h4 {
                             text-align: center;
+                            height: 1rem;
                         }
                     }
 
                     button {
                         align-self: center;
-                        margin-top: 3rem;
+                        margin-top: 1rem;
                         width: 10rem;
                         height: 1.5rem;
                         padding: 0 0.5rem;
@@ -256,8 +260,9 @@
 
             .imagenDown {
                 display: flex;
+                background-color: white;
                 justify-content: center;
-                width: 100%;
+                width: 70%;
                 height: 25rem;
                 margin-left: 2rem;
                 border: $b;

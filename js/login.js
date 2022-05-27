@@ -257,7 +257,6 @@ window.addEventListener('load', function() {
             .then(() => {
                 document.querySelector("#" + id).remove()
             })
-
     }
 
     const closeSession = document.querySelector("#closeSession");
@@ -371,6 +370,7 @@ window.addEventListener('load', function() {
                 fileInput.value = "";
                 titleUpl.value = "";
                 descriptionUpl.value = "";
+                document.querySelector("#imagenDown").src = ""
             })
     }
 
