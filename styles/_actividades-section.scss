@@ -1,7 +1,7 @@
-#actividades {
-    margin-top: 3rem;
+#actividades, #actividades_page_section {
+    margin: 4rem auto;
     background-color: $blue;
-    padding: 2.3rem 0;
+    padding: 2rem 0;
 
     h2 {
         @include HomeTitle;
@@ -18,6 +18,20 @@
         padding: 0 3rem;
     }
 
+    .actividades_link {
+        margin: 1.5rem auto;
+        @include CustomButton($red, $yellow);
+
+        a {
+            color: white;
+            font-weight: 500;
+
+            &:hover {
+                color: black;
+            }
+        }
+    }
+
     .actividades_card {
         display: flex;
         justify-content: space-around;
@@ -26,7 +40,7 @@
 
         width: 35rem; height: 23rem;
 
-        background-color: whitesmoke;
+        background-color: rgb(226, 226, 226);
         padding: 1rem 1.8rem;
 
         border-radius: 1.5rem;

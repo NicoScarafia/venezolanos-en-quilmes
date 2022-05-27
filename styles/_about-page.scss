@@ -1,11 +1,7 @@
 #main_about {
 
     h1 {
-        text-transform: uppercase;
-        color: $dark;
-        font-size: 2.8rem;
-        text-align: center;
-        margin: 3rem auto 2rem auto;
+        @include PageTitle;
     }
 
     .about_intro {
@@ -39,9 +35,9 @@
     }
 
     p, li {
-        font-size: 1.13rem;
+        font-size: 1.08rem;
         text-align: justify;
-        line-height: 1.6rem;
+        line-height: 1.7rem;
     }
 
     li {

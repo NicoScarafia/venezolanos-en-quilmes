@@ -19,8 +19,31 @@ $text-font: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.1rem;
 }
 
-@mixin Opacity( $opacityNumber:80% ) {
+@mixin PageTitle {
+    text-transform: uppercase;
+    color: $dark;
+    font-size: 3rem;
+    text-align: center;
+    margin: 3rem auto 2rem auto;
+}
+
+@mixin Opacity($opacityNumber: 80%) {
     opacity: $opacityNumber;
-   -moz-opacity: $opacityNumber;
-   -webkit-opacity: $opacityNumber;
+    -moz-opacity: $opacityNumber;
+    -webkit-opacity: $opacityNumber;
+}
+
+@mixin CustomButton($bgColor:$red, $hoverColor:$blue) {
+    width: 7rem;
+    background-color: $bgColor;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $light;
+        background-color: $hoverColor;
+    }
 }

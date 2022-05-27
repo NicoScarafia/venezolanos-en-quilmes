@@ -2,9 +2,9 @@
     position: fixed;
     top: 82vh; right: 4vw;
     z-index: 10000;
-    padding: 1rem;
+    padding: 0.8rem;
     border: 0.12rem solid $light;
-    background-color: #25D366;
+    background-color: darken(#25D366 , 8%);
     
     border-radius: 50%;
     transition: 0.2s all;
@@ -15,6 +15,7 @@
     }
 
     &:hover {
-        background-color: #075E54;
+        background-color: darken(#25D366 , 18%);
+        // background-color: #075E54;
     }
 }

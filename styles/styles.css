@@ -32,12 +32,14 @@ a {
 }
 
 .navbar .link-left, .navbar .link-right {
+  text-align: center;
   color: #feee4e;
   font-size: 1.2rem;
   margin: 0 1.5rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   position: relative;
+  font-weight: 600;
 }
 
 .navbar .link-left::after, .navbar .link-right::after {
@@ -155,9 +157,9 @@ a {
   top: 82vh;
   right: 4vw;
   z-index: 10000;
-  padding: 1rem;
+  padding: 0.8rem;
   border: 0.12rem solid #e7e4d3;
-  background-color: #25D366;
+  background-color: #1fb055;
   border-radius: 50%;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
@@ -169,7 +171,7 @@ a {
 }
 
 .whatsapp-button:hover {
-  background-color: #075E54;
+  background-color: #178540;
 }
 
 #about {
@@ -251,13 +253,13 @@ a {
   background-color: #0a5aa2;
 }
 
-#actividades {
-  margin-top: 3rem;
+#actividades, #actividades_page_section {
+  margin: 4rem auto;
   background-color: #0a5aa2;
-  padding: 2.3rem 0;
+  padding: 2rem 0;
 }
 
-#actividades h2 {
+#actividades h2, #actividades_page_section h2 {
   font-family: "Signika Negative", sans-serif;
   color: #141720;
   font-size: 3.3rem;
@@ -267,7 +269,7 @@ a {
   color: white;
 }
 
-#actividades .actividades_content {
+#actividades .actividades_content, #actividades_page_section .actividades_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -279,7 +281,33 @@ a {
   padding: 0 3rem;
 }
 
-#actividades .actividades_card {
+#actividades .actividades_link, #actividades_page_section .actividades_link {
+  margin: 1.5rem auto;
+  width: 7rem;
+  background-color: #f14143;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#actividades .actividades_link:hover, #actividades_page_section .actividades_link:hover {
+  color: #e7e4d3;
+  background-color: #feee4e;
+}
+
+#actividades .actividades_link a, #actividades_page_section .actividades_link a {
+  color: white;
+  font-weight: 500;
+}
+
+#actividades .actividades_link a:hover, #actividades_page_section .actividades_link a:hover {
+  color: black;
+}
+
+#actividades .actividades_card, #actividades_page_section .actividades_card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,30 +319,30 @@ a {
   margin: 1rem auto;
   width: 35rem;
   height: 23rem;
-  background-color: whitesmoke;
+  background-color: #e2e2e2;
   padding: 1rem 1.8rem;
   border-radius: 1.5rem;
 }
 
-#actividades .actividades_card .card_image {
+#actividades .actividades_card .card_image, #actividades_page_section .actividades_card .card_image {
   min-width: 11rem;
   height: 100%;
   margin-right: 1.5rem;
 }
 
-#actividades .actividades_card .card_image img {
+#actividades .actividades_card .card_image img, #actividades_page_section .actividades_card .card_image img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-#actividades .actividades_card .card_text .card_heading {
+#actividades .actividades_card .card_text .card_heading, #actividades_page_section .actividades_card .card_text .card_heading {
   font-size: 1.3rem;
   font-weight: 600;
 }
 
-#actividades .actividades_card .card_text .card_date {
+#actividades .actividades_card .card_text .card_date, #actividades_page_section .actividades_card .card_text .card_date {
   margin: 0.8rem 0;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.88rem;
@@ -322,11 +350,11 @@ a {
   font-weight: 600;
 }
 
-#actividades .actividades_card .card_text .card_date i {
+#actividades .actividades_card .card_text .card_date i, #actividades_page_section .actividades_card .card_text .card_date i {
   margin-right: 0.2rem;
 }
 
-#actividades .actividades_card .card_text .card_main-text {
+#actividades .actividades_card .card_text .card_main-text, #actividades_page_section .actividades_card .card_text .card_main-text {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
@@ -334,7 +362,7 @@ a {
   text-align: justify;
 }
 
-#actividades .actividades_card .card_text .card_link {
+#actividades .actividades_card .card_text .card_link, #actividades_page_section .actividades_card .card_text .card_link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -345,7 +373,7 @@ a {
   margin-top: 0.5rem;
 }
 
-#actividades .actividades_card .card_text .card_link i {
+#actividades .actividades_card .card_text .card_link i, #actividades_page_section .actividades_card .card_text .card_link i {
   background-color: #0a5aa2;
   color: white;
   padding: 0.4rem;
@@ -354,7 +382,7 @@ a {
   transition: 0.2s all;
 }
 
-#actividades .actividades_card .card_text .card_link i:hover {
+#actividades .actividades_card .card_text .card_link i:hover, #actividades_page_section .actividades_card .card_text .card_link i:hover {
   background-color: #f14143;
 }
 
@@ -411,6 +439,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -419,22 +451,6 @@ a {
   border-radius: 0.5rem;
   height: 8rem;
   border: 0.15rem solid #c9c9c9;
-}
-
-#redes .red-social div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 #redes .instagram {
@@ -506,7 +522,7 @@ footer .footer_contacto ul {
 #main_about h1 {
   text-transform: uppercase;
   color: #141720;
-  font-size: 2.8rem;
+  font-size: 3rem;
   text-align: center;
   margin: 3rem auto 2rem auto;
 }
@@ -544,9 +560,9 @@ footer .footer_contacto ul {
 }
 
 #main_about p, #main_about li {
-  font-size: 1.13rem;
+  font-size: 1.08rem;
   text-align: justify;
-  line-height: 1.6rem;
+  line-height: 1.7rem;
 }
 
 #main_about li {
@@ -648,5 +664,18 @@ footer .footer_contacto ul {
   -o-object-position: right;
      object-position: right;
   border-radius: 0.5rem;
+}
+
+#main_actividades h1 {
+  text-transform: uppercase;
+  color: #141720;
+  font-size: 3rem;
+  text-align: center;
+  margin: 3rem auto 2rem auto;
+}
+
+#main_actividades #actividades_page_section {
+  background-color: white;
+  margin: -2rem auto;
 }
 /*# sourceMappingURL=styles.css.map */
